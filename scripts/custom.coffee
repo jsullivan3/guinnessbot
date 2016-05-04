@@ -8,3 +8,14 @@ module.exports = (robot) ->
 
     robot.respond /du hast mich/i, (res) ->
         res.send "Nein!"
+
+    robot.respond /dilbert me/i, (msg) ->
+        url = 'http://dilbert.com'
+        msg.http(url)
+          .get() (err, res, body) ->
+            if err
+              msg.send "Sorry, I can't do that."
+              return
+            rx1 = /img-responsive.*>/
+            rx2 = /http:[^"]*/
+            msg.send rx2.exec(rx1.exec(body))
