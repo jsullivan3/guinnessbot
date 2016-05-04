@@ -19,5 +19,5 @@ module.exports = (robot) ->
             rx1 = /img-responsive.*>/
             rx2 = /http:[^"]*/
             img = rx2.exec(rx1.exec(body)).toString()
-            msg.send("#{img}#.png")
+            msg.send("#{img}.png")
             
