@@ -9,8 +9,14 @@ module.exports = (robot) ->
     robot.respond /du hast mich/i, (res) ->
         res.send "Nein!"
 
-    robot.respond /dilbert me/i, (msg) ->
+    robot.respond /dilbert me ?(.*)?/i, (msg) ->
         url = 'http://dilbert.com'
+        if msg.match[1]?
+          comicDateRegexp = /\d\d\d\d-\d\d-\d\d/
+          if not comicDateRegexp.exec(msg.match[1])?
+            msg.send("I do not understand '#{msg.match[1]}' as a date.")
+            return
+          url = "#{url}/strip/#{msg.match[1]}"
         msg.http(url)
           .get() (err, res, body) ->
             if err
