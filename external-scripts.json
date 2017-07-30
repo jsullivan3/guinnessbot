@@ -1,19 +1,12 @@
 [
-  "hubot-business-cat",
   "hubot-diagnostics",
   "hubot-help",
   "hubot-heroku-keepalive",
-  "hubot-humanity",
   "hubot-google-images",
   "hubot-google-translate",
   "hubot-pugme",
   "hubot-maps",
-  "hubot-plusplus",
-  "hubot-reaction",
   "hubot-redis-brain",
   "hubot-rules",
-  "hubot-shipit",
-  "hubot-soon",
-  "hubot-thesimpsons",
-  "hubot-wikipedia"
+  "hubot-shipit"
 ]
